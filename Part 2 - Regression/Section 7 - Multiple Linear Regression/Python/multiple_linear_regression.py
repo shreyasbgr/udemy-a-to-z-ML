@@ -36,7 +36,7 @@ import statsmodels.api as sm
 X = np.append(arr=np.ones((50,1)).astype(int),values=X,axis=1)
 
 # Creating optimal features matrix
-X_opt = X[:, [0,2,4,5,6]]
+X_opt = X[:, [0,4]]
 X_opt = np.array(X_opt,dtype=float)
 regressor_OLS = sm.OLS(endog=y,exog=X_opt).fit()
 regressor_OLS.summary()
