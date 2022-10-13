@@ -29,7 +29,15 @@ regressor = SVR(kernel = 'rbf')
 regressor.fit(X, y)
 
 # Predicting a new result
-sc_y.inverse_transform(regressor.predict(sc_X.transform([[6.5]])))
+y_pred=sc_y.inverse_transform(regressor.predict(sc_X.transform([[6.5]])))
+
+# Visualising the SVR results
+plt.scatter(X, y, color = 'red')
+plt.plot(X, regressor.predict(X), color = 'blue')
+plt.title('Truth or Bluff (SVR)')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.show()
 
 # Visualising the SVR results
 plt.scatter(sc_X.inverse_transform(X), sc_y.inverse_transform(y), color = 'red')
